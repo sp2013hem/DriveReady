@@ -22,12 +22,12 @@ Exam rules are in `src/config.ts`. They come from guide sites, not official sour
 
 ```sh
 npm install
-npm run prep     # converts data/ into public/ (needs the raw data/ folder)
+npm run prep     # converts backup/ into public/ (needs the raw backup/ folder)
 npm run dev
 npm run build
 ```
 
-`data/` holds the raw source files and is git-ignored. `public/` holds the processed questions and media.
+`backup/` holds the raw source files and is git-ignored. `public/` holds the processed questions and media.
 
 ## Deployment
 

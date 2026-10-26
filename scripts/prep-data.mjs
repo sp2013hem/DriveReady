@@ -1,4 +1,4 @@
-// Converts the raw scraped catalogue in data/ into web-ready assets in public/.
+// Converts the raw scraped catalogue in backup/ into web-ready assets in public/.
 //   node scripts/prep-data.mjs [--skip-media]
 import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs'
 import { basename, join } from 'node:path'
@@ -7,7 +7,7 @@ import { cpus } from 'node:os'
 import ffmpeg from 'ffmpeg-static'
 import sharp from 'sharp'
 
-const RAW = 'data'
+const RAW = 'backup'
 const OUT = 'public'
 const skipMedia = process.argv.includes('--skip-media')
 
