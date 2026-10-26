@@ -33,7 +33,7 @@ export default function QuestionCard({ q, value, onChange, reveal, bookmarked, o
 
       {q.type === 'choice' ? (
         <>
-          <p className="hint">{q.correct.length > 1 ? `Select ${q.correct.length} correct answers` : 'Select 1 correct answer'}</p>
+          <p className="hint">Select all correct answers</p>
           <ul className="options">
             {q.options.map((opt, i) => {
               const picked = ((value as number[]) ?? []).includes(i)
