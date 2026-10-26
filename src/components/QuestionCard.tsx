@@ -16,6 +16,7 @@ interface Props {
 export default function QuestionCard({ q, value, onChange, reveal, bookmarked, onBookmark }: Props) {
   const [showExpl, setShowExpl] = useState(true)
   const ok = reveal && isCorrect(q, value)
+  const unanswered = value === undefined
   return (
     <article className="card">
       <header className="qhead">
@@ -67,13 +68,13 @@ export default function QuestionCard({ q, value, onChange, reveal, bookmarked, o
             onChange={(e) => onChange(e.target.value)}
             className={reveal ? (ok ? 'right' : 'wrong') : ''}
           />
-          {reveal && !ok && <p className="hint">Correct answer: <b>{q.answer}</b></p>}
+          {reveal && !ok && !unanswered && <p className="hint">Correct answer: <b>{q.answer}</b></p>}
         </div>
       )}
 
       {reveal && (
-        <section className={`feedback ${ok ? 'ok' : 'bad'}`}>
-          <strong>{ok ? '✓ Correct' : '✗ Incorrect'}</strong>
+        <section className={`feedback ${unanswered ? '' : ok ? 'ok' : 'bad'}`}>
+          <strong>{unanswered ? 'Correct answer highlighted' : ok ? '✓ Correct' : '✗ Incorrect'}</strong>
           {q.explanation && (
             <>
               <button className="link" onClick={() => setShowExpl(!showExpl)}>{showExpl ? 'Hide' : 'Show'} explanation</button>
