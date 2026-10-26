@@ -3,3 +3,4 @@ dist
 .DS_Store
 # raw source data (700 MB) – only the processed output in public/ is committed
 data/
+*.tsbuildinfo
